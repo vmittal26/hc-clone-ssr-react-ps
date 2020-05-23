@@ -4,6 +4,6 @@ import App from "./App";
 
 
 ReactDOM.hydrate(
-    <App/>,
+    <App />,
     document.getElementById("root")
 );

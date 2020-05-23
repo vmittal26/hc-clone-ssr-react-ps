@@ -2,6 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/server";
 import * as Express from "express";
 import App from "client/App";
+import { ServerStyleSheet } from 'styled-components'; 
+import { Html } from "client/Html";
 
 declare const module: any;
 
@@ -13,26 +15,19 @@ function main() {
 
     express.get("/*", (req, res, next) => {
 
-        const appHTML = ReactDOM.renderToString(<App />);
+       
+        const sheet = new ServerStyleSheet(); // <-- creating out stylesheet
+        const body = ReactDOM.renderToString(sheet.collectStyles(<App />));
+        const styles = sheet.getStyleTags();
+        const title = 'Server side Rendering';
 
-        res.send(`
-            <!DOCTYPE html>
-            <html>
-                <head>
-                    <title>TypeScript ReactJS SSR App</title>
-                    <style>
-                        body {
-                            margin: 0px;
-                            padding: 0px;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <main id="root">${appHTML}</main>
-                    <script type="application/javascript" src="bundle.js"></script>
-                </body>
-            </html>
-        `);
+        res.send(
+        Html({
+            body,
+            styles, // <-- passing the styles to our Html template
+            title
+          })
+        );
         res.end();
         next();
     });

@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "53a1a59662920f2f2e1c";
+/******/ 	var hotCurrentHash = "2924238d76bac052abb0";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -826,7 +826,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ \"./src/client/pages/Home.tsx\");\nvar __extends = (undefined && undefined.__extends) || (function () {\r\n    var extendStatics = function (d, b) {\r\n        extendStatics = Object.setPrototypeOf ||\r\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\r\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\r\n        return extendStatics(d, b);\r\n    };\r\n    return function (d, b) {\r\n        extendStatics(d, b);\r\n        function __() { this.constructor = d; }\r\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\r\n    };\r\n})();\r\n\r\n\r\n\r\nvar App = (function (_super) {\r\n    __extends(App, _super);\r\n    function App() {\r\n        return _super !== null && _super.apply(this, arguments) || this;\r\n    }\r\n    App.prototype.render = function () {\r\n        return (react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](react__WEBPACK_IMPORTED_MODULE_0__[\"Fragment\"], null,\r\n            react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"StaticRouter\"], null,\r\n                react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Switch\"], null,\r\n                    react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Route\"], { exact: true, path: \"/\", component: _pages_Home__WEBPACK_IMPORTED_MODULE_2__[\"Home\"] })))));\r\n    };\r\n    return App;\r\n}(react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"]));\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\r\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return App; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Home */ \"./src/client/pages/Home.tsx\");\n\r\n\r\nfunction App() {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](\"div\", null,\r\n        react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](_pages_Home__WEBPACK_IMPORTED_MODULE_1__[\"Home\"], null)));\r\n}\r\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/client/Html.tsx":
+/*!*****************************!*\
+  !*** ./src/client/Html.tsx ***!
+  \*****************************/
+/*! exports provided: Html */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Html\", function() { return Html; });\nvar Html = function (_a) {\r\n    var body = _a.body, styles = _a.styles, title = _a.title;\r\n    return \"\\n  <!DOCTYPE html>\\n  <html>\\n    <head>\\n      <title>\" + title + \"</title>\\n      \" + styles + \"\\n    </head>\\n    <body style=\\\"margin:0\\\">\\n      <div id=\\\"app\\\">\" + body + \"</div>\\n    </body>\\n  </html>\\n\";\r\n};\r\n\n\n//# sourceURL=webpack:///./src/client/Html.tsx?");
 
 /***/ }),
 
@@ -838,7 +850,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Home\", function() { return Home; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\r\nvar Home = function () {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](\"div\", null,\r\n        react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](\"p\", null, \"Home\")));\r\n};\r\n\n\n//# sourceURL=webpack:///./src/client/pages/Home.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Home\", function() { return Home; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"styled-components\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);\nvar __makeTemplateObject = (undefined && undefined.__makeTemplateObject) || function (cooked, raw) {\r\n    if (Object.defineProperty) { Object.defineProperty(cooked, \"raw\", { value: raw }); } else { cooked.raw = raw; }\r\n    return cooked;\r\n};\r\n\r\n\r\nvar HomeContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\\n  display: flex;\\n  align-items: center;\\n  justify-content: center;\\n  position: fixed;\\n  width: 100%;\\n  height: 100%;\\n  font-size: 20px;\\n  background: linear-gradient(20deg, rgb(219, 112, 147), #daa357);\\n\"], [\"\\n  display: flex;\\n  align-items: center;\\n  justify-content: center;\\n  position: fixed;\\n  width: 100%;\\n  height: 100%;\\n  font-size: 20px;\\n  background: linear-gradient(20deg, rgb(219, 112, 147), #daa357);\\n\"])));\r\nvar Home = function () {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](HomeContainer, null,\r\n        react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](\"p\", null, \"Home2\")));\r\n};\r\nvar templateObject_1;\r\n\n\n//# sourceURL=webpack:///./src/client/pages/Home.tsx?");
 
 /***/ }),
 
@@ -850,7 +862,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var client_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! client/App */ \"./src/client/App.tsx\");\n\r\n\r\n\r\n\r\nfunction main() {\r\n    var express = express__WEBPACK_IMPORTED_MODULE_2__();\r\n    var port = 8080;\r\n    express.use(express__WEBPACK_IMPORTED_MODULE_2__[\"static\"](\"build\"));\r\n    express.get(\"/*\", function (req, res, next) {\r\n        var appHTML = react_dom_server__WEBPACK_IMPORTED_MODULE_1__[\"renderToString\"](react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](client_App__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\r\n        res.send(\"\\n            <!DOCTYPE html>\\n            <html>\\n                <head>\\n                    <title>TypeScript ReactJS SSR App</title>\\n                    <style>\\n                        body {\\n                            margin: 0px;\\n                            padding: 0px;\\n                        }\\n                    </style>\\n                </head>\\n                <body>\\n                    <main id=\\\"root\\\">\" + appHTML + \"</main>\\n                    <script type=\\\"application/javascript\\\" src=\\\"bundle.js\\\"></script>\\n                </body>\\n            </html>\\n        \");\r\n        res.end();\r\n        next();\r\n    });\r\n    var server = express.listen(port);\r\n    if (true) {\r\n        module.hot.accept();\r\n        module.hot.dispose(function () { return server.close(); });\r\n    }\r\n}\r\nmain();\r\n\n\n//# sourceURL=webpack:///./src/server/index.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var client_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! client/App */ \"./src/client/App.tsx\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ \"styled-components\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var client_Html__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! client/Html */ \"./src/client/Html.tsx\");\n\r\n\r\n\r\n\r\n\r\n\r\nfunction main() {\r\n    var express = express__WEBPACK_IMPORTED_MODULE_2__();\r\n    var port = 8080;\r\n    express.use(express__WEBPACK_IMPORTED_MODULE_2__[\"static\"](\"build\"));\r\n    express.get(\"/*\", function (req, res, next) {\r\n        var sheet = new styled_components__WEBPACK_IMPORTED_MODULE_4__[\"ServerStyleSheet\"]();\r\n        var body = react_dom_server__WEBPACK_IMPORTED_MODULE_1__[\"renderToString\"](sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"](client_App__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null)));\r\n        var styles = sheet.getStyleTags();\r\n        var title = 'Server side Rendering';\r\n        res.send(Object(client_Html__WEBPACK_IMPORTED_MODULE_5__[\"Html\"])({\r\n            body: body,\r\n            styles: styles,\r\n            title: title\r\n        }));\r\n        res.end();\r\n        next();\r\n    });\r\n    var server = express.listen(port);\r\n    if (true) {\r\n        module.hot.accept();\r\n        module.hot.dispose(function () { return server.close(); });\r\n    }\r\n}\r\nmain();\r\n\n\n//# sourceURL=webpack:///./src/server/index.tsx?");
 
 /***/ }),
 
@@ -887,14 +899,14 @@ eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:/
 
 /***/ }),
 
-/***/ "react-router-dom":
-/*!***********************************!*\
-  !*** external "react-router-dom" ***!
-  \***********************************/
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
+eval("module.exports = require(\"styled-components\");\n\n//# sourceURL=webpack:///external_%22styled-components%22?");
 
 /***/ })
 
