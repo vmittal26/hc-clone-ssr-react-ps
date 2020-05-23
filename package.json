@@ -1,0 +1,31 @@
+{
+    "name": "hc-clone-ssr-react-ps",
+    "version": "0.5.0",
+    "license": "MIT",
+    "author": "",
+    "scripts": {
+        "build-dev": "webpack --watch",
+        "build": "webpack",
+        "start-dev": "nodemon build/server.js",
+        "start": "node build/server.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^4.3.1"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.6",
+        "@types/node": "^10.17.24",
+        "@types/react": "^16.9.35",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-router-dom": "^4.3.5",
+        "nodemon": "^1.19.4",
+        "ts-loader": "^4.5.0",
+        "typescript": "^3.9.3",
+        "webpack": "^4.12.1",
+        "webpack-cli": "^3.0.8",
+        "webpack-node-externals": "^1.7.2"
+    }
+}
