@@ -25,7 +25,7 @@ var client = Object.assign({}, config, {
     target: "web",
     entry: path.resolve(__dirname, "src/client/index.tsx"),
     output: {
-        filename: "bundle.js",
+        filename: "index.js",
         path: path.resolve(__dirname, "build")
     }
 });

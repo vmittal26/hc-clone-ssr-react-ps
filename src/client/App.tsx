@@ -1,11 +1,7 @@
 import * as React from "react";
-import { Home } from "./pages/Home";
+import { HackerNews } from "./pages/HackerNews";
 
 export default function App() {
-    return (
-        <div>
-          <Home/>  
-        </div>
-    )
+    return <HackerNews/>;
 }
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const Html = ({ body, styles, title }:any) => `
+export const Html = ({ appHtml, styles, title }: any) => `
   <!DOCTYPE html>
   <html>
     <head>
@@ -8,7 +8,8 @@ export const Html = ({ body, styles, title }:any) => `
       ${styles}
     </head>
     <body style="margin:0">
-      <div id="app">${body}</div>
+      <div id="app">${appHtml}</div>
+      <script type="application/javascript" src="index.js"></script>
     </body>
   </html>
 `;
