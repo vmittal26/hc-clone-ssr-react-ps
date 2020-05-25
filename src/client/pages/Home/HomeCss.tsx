@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
   width: 95%;
   font-size: 0.6rem;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   align-items: center;
   background: ${GRAY_COLOR};
   overflow: auto;

@@ -6,6 +6,12 @@ import { Posts } from "client/components";
 import { PostType } from "client/model";
 import { HomeContainer } from "./HomeCss";
 import { getLocalStorageMap } from "client/utils/getLocalStorageMap";
+import { Spinner, useFetchPosts } from '../../shared/'
+
+interface FetchDataState{
+    isLoading:boolean;
+    posts:PostType[];
+}
 
 export const Home = (): React.ReactElement => {
   const history = useHistory();
@@ -13,12 +19,22 @@ export const Home = (): React.ReactElement => {
   const { page } = query.parse(location.search);
   const pageNum = page != null && !isNaN(Number(page)) ? Number(page) : 0;
   const [pageNumber, setPageNumber] = React.useState<number>(pageNum);
-  const [posts, setPosts] = React.useState([]);
+  const { data : {isLoading , posts } , setData} = useFetchPosts(pageNumber);
 
   const onMore = () => {
     history.push(`/?page=${pageNumber + 1}`);
     setPageNumber(pageNumber + 1);
   };
+
+  const persistPosts = (posts:PostType[] , pageNum: number)=>{
+    const pagePostsStorage = getLocalStorageMap();
+    pagePostsStorage.set(pageNum, posts);
+    localStorage.pagePostsMap = JSON.stringify(Array.from(pagePostsStorage.entries()));
+    setData(({isLoading}:FetchDataState)=>({
+      isLoading,
+      posts:[...posts]
+    }));
+  }
 
   const onUpvote = (postId: number) => {
     console.log("on upvote", postId);
@@ -27,20 +43,22 @@ export const Home = (): React.ReactElement => {
     );
     if (post != null) {
       post.points = post.points + 1;
-      const pagePostsStorage = getLocalStorageMap();
-      pagePostsStorage.set(pageNumber, posts);
-      localStorage.pagePostsMap = JSON.stringify( Array.from(pagePostsStorage.entries()));
-      setPosts([...posts]);
+      persistPosts(posts,pageNumber);
+      setData(({isLoading}:FetchDataState)=>({
+        isLoading,
+        posts:[...posts]
+      }));
     }
   };
 
   const onHidePost = (postId: number) => {
     console.log("on hidePost", postId);
     const postsFiltered = posts.filter((post) => post.objectID !== postId);
-    const pagePostsStorage = getLocalStorageMap();
-    pagePostsStorage.set(pageNumber, postsFiltered);
-    localStorage.pagePostsMap = JSON.stringify( Array.from(pagePostsStorage.entries()));
-    setPosts([...postsFiltered]);
+    persistPosts(postsFiltered,pageNumber);
+    setData(({isLoading}:FetchDataState)=>({
+      isLoading,
+      posts:[...postsFiltered]
+    }));
   };
 
   const onResetPosts = () => {
@@ -59,24 +77,10 @@ export const Home = (): React.ReactElement => {
     return unlisten;
   }, []);
 
-  React.useEffect(() => {
-    console.log('fetching posts...');
-    const fetchPosts = async (pageNumber: number) => {
-      const response = await fetch(
-        `https://hn.algolia.com/api/v1/search?page=${pageNumber}&hitsPerPage=30`
-      );
-      const { hits: posts } = await response.json();
-      setPosts([...posts]);
-    };
-    const pagePostMapFromLocalStorage = getLocalStorageMap();
-    const currentPagePosts = pagePostMapFromLocalStorage.get(pageNumber);
-    currentPagePosts != null ? setPosts([...currentPagePosts]) : fetchPosts(pageNumber);
-    
-  }, [pageNumber]);
-
   return (
     <HomeContainer>
       <Header onMore={onMore} onResetPosts={onResetPosts} />
+      {isLoading && <Spinner/>}
       <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </HomeContainer>
   );
