@@ -50,6 +50,7 @@ export const Home = (): React.ReactElement => {
 
   React.useEffect(() => {
     const unlisten = history.listen((location, _action) => {
+      console.log('route changed');
       const { page } = query.parse(location.search);
       const pageNum = page != null && !isNaN(Number(page)) ? Number(page) : 0;
       setPageNumber(pageNum);
@@ -59,23 +60,23 @@ export const Home = (): React.ReactElement => {
   }, []);
 
   React.useEffect(() => {
+    console.log('fetching posts...');
     const fetchPosts = async (pageNumber: number) => {
       const response = await fetch(
         `https://hn.algolia.com/api/v1/search?page=${pageNumber}&hitsPerPage=30`
       );
       const { hits: posts } = await response.json();
-      const pagePostMapFromLocalStorage = getLocalStorageMap();
-      const currentPagePosts = pagePostMapFromLocalStorage.get(pageNumber);
-      currentPagePosts != null
-        ? setPosts([...currentPagePosts])
-        : setPosts([...posts]);
+      setPosts([...posts]);
     };
-    fetchPosts(pageNumber);
+    const pagePostMapFromLocalStorage = getLocalStorageMap();
+    const currentPagePosts = pagePostMapFromLocalStorage.get(pageNumber);
+    currentPagePosts != null ? setPosts([...currentPagePosts]) : fetchPosts(pageNumber);
+    
   }, [pageNumber]);
 
   return (
     <HomeContainer>
-      <Header onMore={onMore} />
+      <Header onMore={onMore} onResetPosts={onResetPosts} />
       <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </HomeContainer>
   );

@@ -36,7 +36,7 @@ function main() {
     next();
   });
 
-  const server = express.listen(port);
+  const server = express.listen(process.env.PORT || 5000);
 
   if (module.hot) {
     module.hot.accept();
