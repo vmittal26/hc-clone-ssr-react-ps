@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/server";
 import * as Express from "express";
 import App from "client/App";
-import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheet , createGlobalStyle } from 'styled-components';
 import { Html } from "client/Html";
 import { StaticRouter } from "react-router-dom";
 
