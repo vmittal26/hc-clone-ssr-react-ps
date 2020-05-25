@@ -11,7 +11,13 @@ var config = {
                 test: /\.tsx?$/,
                 use: "ts-loader",
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                 ],
+                },
         ]
     },
     resolve: {

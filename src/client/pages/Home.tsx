@@ -2,20 +2,23 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import * as query from 'query-string';
+import { Header } from '../components/Header/Header';
 
 
-const HackerNewsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  background: linear-gradient(20deg, rgb(219, 112, 147), #daa357);
+const HomeContainer = styled.div`
+    max-width: 62.5rem;
+    width: 95%;
+    font-size: 0.6rem;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    align-items: center;
+    background: #f7f7f7;
+    overflow: auto;
+    height: 98vh;
+    position: relative;
 `;
 
-export const HackerNews = ():React.ReactElement => {
+export const Home = ():React.ReactElement => {
 
     const history = useHistory();
     const { location }  = history;
@@ -51,12 +54,10 @@ export const HackerNews = ():React.ReactElement => {
     }, [pageNumber]);
 
     return (
-        <HackerNewsContainer>
-            <ul>
-                {posts.map((post: any) => <li key={post.objectID}>{post.title}</li>)}
-            </ul>
+        <HomeContainer>
+            <Header/>
             <button onClick={onMore}>More</button>
-        </HackerNewsContainer>
+        </HomeContainer>
     )
 }
 
