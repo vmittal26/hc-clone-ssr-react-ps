@@ -1,12 +1,12 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import * as query from "query-string";
-import { Header } from "../../components/Header/Header";
-import { Posts } from "client/components";
+
+import { Spinner, useFetchPosts } from '../../shared/'
+import { getLocalStorageMap } from "client/utils/getLocalStorageMap";
+import { Posts , Header} from "client/components";
 import { PostType } from "client/model";
 import { HomeContainer } from "./HomeCss";
-import { getLocalStorageMap } from "client/utils/getLocalStorageMap";
-import { Spinner, useFetchPosts } from '../../shared/'
 
 interface FetchDataState{
     isLoading:boolean;
@@ -19,6 +19,7 @@ export const Home = (): React.ReactElement => {
   const { page } = query.parse(location.search);
   const pageNum = page != null && !isNaN(Number(page)) ? Number(page) : 0;
   const [pageNumber, setPageNumber] = React.useState<number>(pageNum);
+  //Custom hook to fetch posts and set state to loading and finish
   const { data : {isLoading , posts } , setData} = useFetchPosts(pageNumber);
 
   const onMore = () => {

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
+
+import upvoteIcon from '../../images/grayarrow.gif';
 import { PostType } from '../../model';
 import { PostItem } from '../PostItem/PostItem';
 import Image from '../Image/Image';
 import { PostsContainer } from './PostsCss';
-import upvoteIcon from '../../images/grayarrow.gif';
+
 
 interface PostsProps {
   postItems: PostType[];

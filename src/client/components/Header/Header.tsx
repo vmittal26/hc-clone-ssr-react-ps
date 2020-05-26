@@ -1,8 +1,9 @@
 import * as React from "react";
-import { HeaderContainer } from "./HeaderCss";
+
 import logo from "../../images/logo.gif";
-import { PrimaryButton, FlexContainer } from "client/shared";
 import Image from "../Image/Image";
+import { PrimaryButton, FlexContainer } from "client/shared";
+import { HeaderContainer } from "./HeaderCss";
 
 interface HeaderProps {
   onMore: () => void;
