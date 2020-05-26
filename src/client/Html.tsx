@@ -8,7 +8,7 @@ export const Html = ({ appHtml, styles, title }: any) => `
         <meta charSet='utf-8' />
         <meta
         name="description"
-        content="Hacker News Clone app"
+        content="Hacker news always shows latest and authentic news around the globe"
         />
       <style>
       ${getGlobalStyles()}

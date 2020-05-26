@@ -21,7 +21,7 @@ export const PostItem = ({
 
   return (
     <Postitemcontainer>
-      <h4 className="post-title item"> {title ? title : NO_TITLE_EXISTS}</h4>
+      <h2 className="post-title item"> {title ? title : NO_TITLE_EXISTS}</h2>
       <span className="post-domain item">{domainURL && `(${domainURL})`}</span>
       <span className="item">by  <strong>{author}</strong></span>
       <span className="item">{`on ${format(
