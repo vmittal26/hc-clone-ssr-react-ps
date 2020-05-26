@@ -1,6 +1,8 @@
 import * as React from "react";
 import { PostType } from "client/model";
 import { getLocalStorageMap } from "client/utils/getLocalStorageMap";
+import { getAPIURL } from "client/utils/getAPIURL";
+import { DEFAULT_PAGE_SIZE } from "./Constants";
 
 interface FetchDataState {
   isLoading: boolean;
@@ -23,12 +25,12 @@ export const useFetchPosts = (pageNumber: number) => {
         error: [],
       });
       try {
-        const response = await fetch(
-          `https://hn.algolia.com/api/v1/search?page=${pageNumber}&hitsPerPage=30`
-        );
+        const response = await fetch(getAPIURL(pageNumber, DEFAULT_PAGE_SIZE));
         const { hits: posts } = await response.json();
         const pagePostMapFromLocalStorage = getLocalStorageMap();
         const currentPagePosts = pagePostMapFromLocalStorage.get(pageNumber);
+        // Check if posts are in localstorage if exists load from localstorage else load 
+        // from api
         currentPagePosts != null
           ? setData({
               isLoading: false,

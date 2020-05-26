@@ -2,16 +2,11 @@ import * as React from "react";
 import { useHistory } from "react-router-dom";
 import * as query from "query-string";
 
-import { Spinner, useFetchPosts } from '../../shared/'
+import { Spinner, useFetchPosts, ERROR_LOADING_POSTS } from '../../shared/'
 import { getLocalStorageMap } from "client/utils/getLocalStorageMap";
 import { Posts , Header, Message} from "client/components";
 import { PostType } from "client/model";
 import { HomeContainer } from "./HomeCss";
-
-interface FetchDataState{
-    isLoading:boolean;
-    posts:PostType[];
-}
 
 export const Home = (): React.ReactElement => {
   const history = useHistory();
@@ -19,7 +14,7 @@ export const Home = (): React.ReactElement => {
   const { page } = query.parse(location.search);
   const pageNum = page != null && !isNaN(Number(page)) ? Number(page) : 0;
   const [pageNumber, setPageNumber] = React.useState<number>(pageNum);
-  //Custom hook to fetch posts and set state to loading and finish
+  //Custom hook to fetch posts and set state appropriate state 
   const { data : {isLoading , posts, error } , setData} = useFetchPosts(pageNumber);
 
   const onMore = () => {
@@ -84,7 +79,7 @@ export const Home = (): React.ReactElement => {
     <HomeContainer>
       <Header onMore={onMore} onClickHome={onClickHome}/>
       {isLoading && <Spinner/>}
-      {error!=null && error.length > 0 && <Message message={'Error loading posts'}/>}
+      {error!=null && error.length > 0 && <Message message={ERROR_LOADING_POSTS}/>}
       <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </HomeContainer>
   );
