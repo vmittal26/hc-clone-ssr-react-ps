@@ -12,11 +12,10 @@ function main() {
   const express = Express();
   const port = 8080;
 
+  express.use('/favicon.ico', Express.static('./favicon.ico'));
   express.use(Express.static("build"));
 
   express.get("/*", (req, res, next) => {
-
-
     const sheet = new ServerStyleSheet(); // <-- creating out stylesheet
     const appHtml = ReactDOM.renderToString(sheet.collectStyles(
       <StaticRouter location={req.path} context={{}}>

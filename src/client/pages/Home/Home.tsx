@@ -36,6 +36,9 @@ export const Home = (): React.ReactElement => {
     }));
   }
 
+  const onClickHome = () => {
+    history.push(`/`);
+  }
   const onUpvote = (postId: number) => {
     console.log("on upvote", postId);
     const post: PostType | undefined = posts.find(
@@ -61,11 +64,6 @@ export const Home = (): React.ReactElement => {
     }));
   };
 
-  const onResetPosts = () => {
-    localStorage.removeItem("pagePostsMap");
-    history.push(`/?page=${pageNumber}`);
-  };
-
   React.useEffect(() => {
     const unlisten = history.listen((location, _action) => {
       console.log('route changed');
@@ -79,7 +77,7 @@ export const Home = (): React.ReactElement => {
 
   return (
     <HomeContainer>
-      <Header onMore={onMore} onResetPosts={onResetPosts} />
+      <Header onMore={onMore} onClickHome={onClickHome}/>
       {isLoading && <Spinner/>}
       <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </HomeContainer>

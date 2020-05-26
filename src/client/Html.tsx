@@ -5,15 +5,15 @@ export const Html = ({ appHtml, styles, title }: any) => `
   <html>
     <head>
       <title>${title}</title>
-      <meta charSet='utf-8' />
-      <meta
-      name="description"
-      content="Hacker News Clone app"
-      />
+        <meta charSet='utf-8' />
+        <meta
+        name="description"
+        content="Hacker News Clone app"
+        />
       <style>
       ${getGlobalStyles()}
       </style>
-      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       ${styles}
     </head>
     <body>
