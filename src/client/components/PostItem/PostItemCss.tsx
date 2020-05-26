@@ -3,11 +3,13 @@ import { PHONE_BREAKPOINT } from "client/shared";
 
 export const Postitemcontainer = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items:center;
+  flex-wrap: wrap;
 
   .item {
+    text-align:left;
     margin-left: 0.4rem;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .post-title {
@@ -45,6 +47,11 @@ export const Postitemcontainer = styled.div`
 
   @media (min-width: ${PHONE_BREAKPOINT}) {
     display: flex;
-    flex-direction: row;
+    flex-wrap: none;
+    align-items:center;
+    .item {
+      margin-left: 0.4rem;
+      white-space: nowrap;
+    }
   }
 `;

@@ -9,6 +9,7 @@ export const PrimaryButton = styled.div`
   cursor: pointer;
   color: ${BLACK_COLOR_LIGHT};
   outline: none;
+  white-space:nowrap;
   border: 1px solid ${BLACK_COLOR_LIGHT};
   padding: 0.2rem 1rem;
   &:hover {

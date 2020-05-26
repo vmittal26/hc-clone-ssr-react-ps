@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/server";
 import * as Express from "express";
 import App from "client/App";
-import { ServerStyleSheet , createGlobalStyle } from 'styled-components';
+import { ServerStyleSheet } from 'styled-components';
 import { Html } from "client/Html";
 import { StaticRouter } from "react-router-dom";
 
@@ -22,7 +22,7 @@ function main() {
         <App />
       </StaticRouter>));
     const styles = sheet.getStyleTags();
-    const title = 'Server side Rendering';
+    const title = 'Hacker News Clone App';
 
     res.send(
       Html({

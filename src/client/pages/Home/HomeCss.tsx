@@ -10,7 +10,7 @@ export const HomeContainer = styled.div`
   align-items: center;
   background: ${GRAY_COLOR};
   overflow: auto;
-  height: 95vh;
+  height: 92vh;
   position: relative;
 
   @media (min-width: ${TABLET_BREAKPOINT}) {
