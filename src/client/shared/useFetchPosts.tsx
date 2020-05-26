@@ -10,6 +10,11 @@ interface FetchDataState {
   error?: any[];
 }
 
+/**
+ * Custom hook to fetchPosts according to pagenumber as input 
+ * and return appropriate state (loading , sucess , error ) along with posts
+ * @param pageNumber 
+ */
 export const useFetchPosts = (pageNumber: number) => {
   const [data, setData] = React.useState<FetchDataState>({
     isLoading: false,
