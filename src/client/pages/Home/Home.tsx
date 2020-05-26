@@ -4,7 +4,7 @@ import * as query from "query-string";
 
 import { Spinner, useFetchPosts } from '../../shared/'
 import { getLocalStorageMap } from "client/utils/getLocalStorageMap";
-import { Posts , Header} from "client/components";
+import { Posts , Header, Message} from "client/components";
 import { PostType } from "client/model";
 import { HomeContainer } from "./HomeCss";
 
@@ -20,7 +20,7 @@ export const Home = (): React.ReactElement => {
   const pageNum = page != null && !isNaN(Number(page)) ? Number(page) : 0;
   const [pageNumber, setPageNumber] = React.useState<number>(pageNum);
   //Custom hook to fetch posts and set state to loading and finish
-  const { data : {isLoading , posts } , setData} = useFetchPosts(pageNumber);
+  const { data : {isLoading , posts, error } , setData} = useFetchPosts(pageNumber);
 
   const onMore = () => {
     history.push(`/?page=${pageNumber + 1}`);
@@ -31,8 +31,9 @@ export const Home = (): React.ReactElement => {
     const pagePostsStorage = getLocalStorageMap();
     pagePostsStorage.set(pageNum, posts);
     localStorage.pagePostsMap = JSON.stringify(Array.from(pagePostsStorage.entries()));
-    setData(({isLoading}:FetchDataState)=>({
-      isLoading,
+    setData(({
+      isLoading:false,
+      error:[],
       posts:[...posts]
     }));
   }
@@ -48,8 +49,9 @@ export const Home = (): React.ReactElement => {
     if (post != null) {
       post.points = post.points + 1;
       persistPosts(posts,pageNumber);
-      setData(({isLoading}:FetchDataState)=>({
-        isLoading,
+      setData(({
+        isLoading:false,
+        error:[],
         posts:[...posts]
       }));
     }
@@ -59,8 +61,9 @@ export const Home = (): React.ReactElement => {
     console.log("on hidePost", postId);
     const postsFiltered = posts.filter((post) => post.objectID !== postId);
     persistPosts(postsFiltered,pageNumber);
-    setData(({isLoading}:FetchDataState)=>({
-      isLoading,
+    setData(({
+      isLoading:false,
+      error:[],
       posts:[...postsFiltered]
     }));
   };
@@ -76,10 +79,12 @@ export const Home = (): React.ReactElement => {
     return unlisten;
   }, []);
 
+ 
   return (
     <HomeContainer>
       <Header onMore={onMore} onClickHome={onClickHome}/>
       {isLoading && <Spinner/>}
+      {error!=null && error.length > 0 && <Message message={'Error loading posts'}/>}
       <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </HomeContainer>
   );
